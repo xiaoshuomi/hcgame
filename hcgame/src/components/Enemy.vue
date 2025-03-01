@@ -40,5 +40,10 @@ defineProps<{
   type: 'basic' | 'advanced' | 'boss'; // 扩展敌人类型
 }>();
 
+// 使用脚本宏来定义默认导出
+defineExpose({});
+</script>
+
+<script lang="ts">
 export default {};
 </script> 

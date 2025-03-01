@@ -66,7 +66,7 @@ function toggleDebug() {
 }
 
 // 生成随机平台
-function generateRandomPlatform(startX: number, endX: number) {
+function generateRandomPlatform(startX: number) {
   const minWidth = 100;
   const maxWidth = 250;
   const minHeight = 15;
@@ -119,7 +119,7 @@ function generateInfiniteMap() {
   // 预先生成10个平台
   let lastPlatformEnd = 300; // 从初始平台结束位置开始生成
   for (let i = 0; i < 10; i++) {
-    const newPlatform = generateRandomPlatform(lastPlatformEnd, lastPlatformEnd + 200);
+    const newPlatform = generateRandomPlatform(lastPlatformEnd);
     platforms.push(newPlatform);
     lastPlatformEnd = newPlatform.position.x + newPlatform.width;
 
@@ -144,7 +144,7 @@ function expandInfiniteMap(playerX: number) {
     let lastPlatformEnd = farthestPlatformX;
     // 生成5个新平台
     for (let i = 0; i < 5; i++) {
-      const newPlatform = generateRandomPlatform(lastPlatformEnd, lastPlatformEnd + 200);
+      const newPlatform = generateRandomPlatform(lastPlatformEnd);
       platforms.push(newPlatform);
       lastPlatformEnd = newPlatform.position.x + newPlatform.width;
       

@@ -23,5 +23,10 @@ defineProps<{
   height: number;
 }>();
 
+// 使用脚本宏来定义默认导出
+defineExpose({});
+</script>
+
+<script lang="ts">
 export default {};
 </script> 

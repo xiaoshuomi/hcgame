@@ -42,7 +42,7 @@
 
 <script setup lang="ts">
 import { ref, reactive, onMounted, onBeforeUnmount } from 'vue';
-import { defineOptions } from 'vue';
+import { defineOptions, defineExpose } from 'vue';
 import StickFigure from './StickFigure.vue';
 import Platform from './Platform.vue';
 import Enemy from './Enemy.vue';
@@ -68,8 +68,8 @@ const gameState = reactive({
 const player = reactive({
   position: { x: 100, y: 300 },
   velocity: { x: 0, y: 0 },
-  direction: 'right', // 'left' 或 'right'
-  animationState: 'idle', // 'idle', 'run', 'jump'
+  direction: 'right' as 'left' | 'right', // 'left' 或 'right'
+  animationState: 'idle' as 'idle' | 'run' | 'jump', // 'idle', 'run', 'jump'
   width: 30,
   height: 60,
   speed: 5,
@@ -86,7 +86,7 @@ const platforms = reactive([
 
 // 敌人
 const enemies = reactive([
-  { position: { x: 500, y: 465 }, type: 'basic', direction: 'left', speed: 1 },
+  { position: { x: 500, y: 465 }, type: 'basic' as 'basic' | 'advanced' | 'boss', direction: 'left', speed: 1 },
 ]);
 
 // 按键状态
@@ -266,5 +266,10 @@ onBeforeUnmount(() => {
   if (gameLoop) cancelAnimationFrame(gameLoop);
 });
 
+// 使用脚本宏来定义默认导出
+defineExpose({});
+</script>
+
+<script lang="ts">
 export default {};
 </script> 
