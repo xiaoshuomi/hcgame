@@ -10,4 +10,15 @@ export default defineConfig({
     host: true,  // 允许局域网访问
   },
   base: './', // 设置为相对路径，方便部署
+  build: {
+    target: 'esnext', // Cloudflare Workers support modern JS features
+    outDir: 'dist', // Make sure output directory matches Wrangler config
+    minify: true,
+    ssrManifest: false,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined, // Recommended for Cloudflare Workers
+      }
+    }
+  }
 })
