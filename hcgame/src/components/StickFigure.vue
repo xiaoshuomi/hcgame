@@ -50,9 +50,17 @@
 </template>
 
 <script setup lang="ts">
+import { defineOptions } from 'vue';
+
+defineOptions({
+  name: 'StickFigure'
+});
+
 defineProps<{
   position: { x: number, y: number };
   animationState: 'idle' | 'run' | 'jump';
   direction: 'left' | 'right';
 }>();
+
+export default {};
 </script> 

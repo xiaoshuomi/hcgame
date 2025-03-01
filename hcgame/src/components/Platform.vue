@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="platform"
+    class="platform bg-gray-700"
     :style="{
       left: `${position.x}px`,
       top: `${position.y}px`,
@@ -11,9 +11,17 @@
 </template>
 
 <script setup lang="ts">
+import { defineOptions } from 'vue';
+
+defineOptions({
+  name: 'Platform'
+});
+
 defineProps<{
   position: { x: number, y: number };
   width: number;
   height: number;
 }>();
+
+export default {};
 </script> 

@@ -42,9 +42,14 @@
 
 <script setup lang="ts">
 import { ref, reactive, onMounted, onBeforeUnmount } from 'vue';
+import { defineOptions } from 'vue';
 import StickFigure from './StickFigure.vue';
 import Platform from './Platform.vue';
 import Enemy from './Enemy.vue';
+
+defineOptions({
+  name: 'GameEngine'
+});
 
 // 游戏画布引用
 const gameCanvas = ref<HTMLDivElement | null>(null);
@@ -261,6 +266,5 @@ onBeforeUnmount(() => {
   if (gameLoop) cancelAnimationFrame(gameLoop);
 });
 
-// 明确定义组件名称
-defineExpose({});
+export default {};
 </script> 
